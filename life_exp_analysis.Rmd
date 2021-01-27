@@ -17,3 +17,25 @@ knitr ::opts_chunk$set(echo = TRUE)
 # Abstract
 
 Here, I re-examine the analysis of Oeppen and Vaupel (2002).
+
+# My Life expectancy analysis
+
+```{r}
+library(gapminder)
+library(tidyverse)
+data(gapminder_unfiltered)
+```
+
+- Set the data
+```{r}
+gapminder_unfiltered %>% 
+  group_by(year) %>% 
+  filter(lifeExp == max(lifeExp)) %>% 
+  ungroup() %>% 
+  select(year, country, lifeExp) %>% 
+  arrange(year) -> sumdat
+  
+  
+
+```
+
